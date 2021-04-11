@@ -13,8 +13,8 @@ RUN apk --no-cache --update add \
         jq \
         git \
         curl \
-        python \
-        py-pip
+        python3 \
+        py3-pip
 
 RUN pip install --upgrade pip \
         awsebcli \

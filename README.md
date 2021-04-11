@@ -42,5 +42,3 @@ docker.image('gonzaloacosta/awscli-tools').inside('-u root:root') {
     sh 'eb create test-app-${BUILD_NUMBER}'
 }
 ```
-# awscli-tools
-# awscli-tools
