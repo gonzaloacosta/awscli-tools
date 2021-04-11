@@ -1,6 +1,8 @@
 # AWS CLI Tool Set 
 
-AWS CLI list
+Docker container with serveral AWS CLI tools sets.
+
+List of tools
 
 - AWS CLI
 - AWS EB CLI
@@ -11,9 +13,9 @@ AWS CLI list
 To from a shell use docker or podman framework.
 
 ```
-docker run -i -w /work -v $PWD:/work gonzaloacosta/awscli-tools eb --version
-docker run -i gonzaloacosta/awscli-tools aws --version
-docker run -i -w /work -v $PWD:/work gonzaloacosta/awscli-tools eb create test-app-${BUILD_NUMBER}
+docker run -it -w /work -v $PWD:/work gonzaloacosta/awscli-tools eb --version
+docker run -it gonzaloacosta/awscli-tools aws --version
+docker run -it -w /work -v $PWD:/work gonzaloacosta/awscli-tools eb create test-app-${BUILD_NUMBER}
 docker run -i gonzaloacosta/awscli-tools aws ec2 describe-instances --region=us-east-1
 ```
 
@@ -24,7 +26,6 @@ To provide credentials, you have 2 options:
 
 ```
 docker run -i -w /work -v $PWD:/work -e AWS_ACCESS_KEY_ID=$AWS_ACCESS_KEY_ID -e AWS_SECRET_ACCESS_KEY=$AWS_SECRET_ACCESS_KEY -e AWS_SESSION_TOKEN=$AWS_SESSION_TOKEN gonzaloacosta/awscli-tools eb status
-docker run -i -e AWS_ACCESS_KEY_ID=$AWS_ACCESS_KEY_ID -e AWS_SECRET_ACCESS_KEY=$AWS_SECRET_ACCESS_KEY -e AWS_SESSION_TOKEN=$AWS_SESSION_TOKEN gonzaloacosta/awscli-tools aws ec2 describe-instances --region=us-east-1
 ```
 
 Example with mounting ~/.aws
@@ -42,3 +43,4 @@ docker.image('gonzaloacosta/awscli-tools').inside('-u root:root') {
     sh 'eb create test-app-${BUILD_NUMBER}'
 }
 ```
+# awscli-tools
